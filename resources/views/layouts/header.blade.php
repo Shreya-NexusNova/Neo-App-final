@@ -112,8 +112,7 @@ a{
                             </li>
                                               <li class="nav-main-item">
                                 <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                    <i class="nav-main-link-icon fa fa-list-alt
-"></i>
+                                    <i class="nav-main-link-icon fa fa-list-alt"></i>
                                     <span class="nav-main-link-name">Issues</span>
                                 </a>
                                 <ul class="nav-main-submenu">
@@ -147,45 +146,53 @@ a{
                                 </a>
                             </li>
 
-                               <li class="nav-main-item">
-                                <a class="nav-main-link" href="{{url('reports')}}">
+                                <li class="nav-main-item">
+                                <a class="nav-main-link" href="{{url('location-reports')}}">
                                     <i class="nav-main-link-icon fa fa-chart-pie"></i>
                                     <span class="nav-main-link-name">Reports</span>
                                 </a>
                             </li>
+                            <!-- <li class="nav-main-item">
+                                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                    <i class="nav-main-link-icon fa fa-chart-pie"></i>
+                                    <span class="nav-main-link-name">Reports</span>
+                                </a>
+                                <ul class="nav-main-submenu">
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link" href="{{url('location-reports')}}">
+                                          <span class="nav-main-link-name">Location Report</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link" href="{{url('issue-type-reports')}}">
+                                            <span class="nav-main-link-name">
+                                            Issue Type Report</span>
+                                      </a>
+                                    </li>
+                                </ul>
+                            </li> -->
                              <li class="nav-main-item">
                                 <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                    <i class="nav-main-link-icon fa fa-cog
-"></i>
+                                    <i class="nav-main-link-icon fa fa-cog"></i>
                                     <span class="nav-main-link-name">Settings</span>
                                 </a>
                                 <ul class="nav-main-submenu">
                                     <li class="nav-main-item">
                                         <a class="nav-main-link" href="{{url('issue-type')}}">
-
-                                            <span class="nav-main-link-name">Issue Type</span>
-
+                                          <span class="nav-main-link-name">Issue Type</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
                                         <a class="nav-main-link" href="{{url('location')}}">
-
                                             <span class="nav-main-link-name">
-
                                             Location</span>
-
-                                        </a>
+                                      </a>
                                     </li>
-
-                           <li class="nav-main-item">
+                        <li class="nav-main-item">
                                 <a class="nav-main-link" href="{{url('staff-role')}}">
-
                                     <span class="nav-main-link-name">Staff Role</span>
                                 </a>
                             </li>
-
-
-
                                 </ul>
                             </li>
 
