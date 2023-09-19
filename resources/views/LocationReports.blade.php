@@ -17,30 +17,44 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
 
 <style>
-    .map_canvas {
-        width: 100%;
-        margin-top:60px;
-        height: calc(100vh - 90px); /* Adjust as needed */
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(54, 162, 235, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
         background: rgba(54, 162, 235, 0.2);
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-
-    .chart-container {
-        width: 100%;
-        max-width: 1100px; /* Adjust the maximum width as needed */
-        padding: 10px;
+      }
+      .chartBox {
+        width: 75%;
+        height: 80%;
+        padding: 20px;
         border-radius: 20px;
         border: solid 3px rgba(54, 162, 235, 1);
         background: white;
-    }
-</style>
+      }
+    </style>
 
-
-<div class="map_canvas">
-    <div class="chart-container">
-    <canvas id="myChart"></canvas>
+<div class="chartMenu">
+</div>
+<div class="chartCard">
+    <div class="chartBox">
+        <canvas id="myChart"></canvas>
     </div>
 </div>
 
@@ -52,23 +66,9 @@ const issueTypes = <?php echo json_encode($issueTypes); ?>;
 const data = <?php echo json_encode($data); ?>;
 
 const labels = locations.map(location => location.location_name);
-const colors = [
-    'rgba(54, 162, 235, 0.6)',
-    'rgba(137, 235, 137, 0.5)',
-    'rgba(235, 162, 137, 0.6)',
-    'rgba(235, 137, 235, 0.5)',
-    'rgba(137, 235, 235, 0.6)',
-    'rgba(137, 137, 235, 0.6)'
-];
+const backgroundColor = 'rgb(30,81,123,0.6)'; // #34495E with 0.2 alpha
+const borderColor = 'rgb(30,81,123,1)'; // #34495E with full alpha
 
-const borders = [
-    'rgba(54, 162, 235, 1.5)',
-    'rgba(137, 235, 137, 1.5)',
-    'rgba(235, 162, 137, 1.5)',
-    'rgba(235, 137, 235, 1.5)',
-    'rgba(137, 235, 235, 1.5)',
-    'rgba(137, 137, 235, 1.5)'
-]
 
 
 const filteredData = data.map(locationData => locationData.data.map(value => value !== 0 ? value : null));
@@ -76,8 +76,8 @@ const filteredData = data.map(locationData => locationData.data.map(value => val
 const datasets = issueTypes.map((issueType, index) => ({
     label: issueType.type_name,
     data: filteredData.map(locationData => locationData[index]),
-    backgroundColor: colors[index],
-    borderColor: borders[index],
+    backgroundColor: backgroundColor,
+    borderColor: borderColor,
     borderWidth: 1
 }));
 
@@ -88,29 +88,15 @@ const myChart = new Chart(ctx, {
         datasets: datasets
     },
     options: {
-        scales: {
-            x: {
-                barPercentage: 1.2, // Adjust this value to make bars wider or narrower
-                categoryPercentage: 1.2, // Adjust this value to make bars wider or narrower
-                stacked: false,
-                grid: {
-                    display: false
-                }
-            },
-            y: {
-                beginAtZero: true,
-                ticks: {
-                    callback: function(value, index, values) {
-                        return issueTypes[index].type_name;
-                    }
-                }
-            }
-        },
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 display: true,
                 position: 'top'
-            }
+            },
+            datalabels: {
+            color: 'white'
+        },
         },
         layout: {
             padding: {
@@ -121,17 +107,15 @@ const myChart = new Chart(ctx, {
             }
         },
         scales: {
-            x: {
-                barPercentage: 0.8,
-                categoryPercentage: 0.9,
-                stacked: false,
-                grid: {
-                    display: false
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
                 }
-            },
-            y: {
-                beginAtZero: true
-            }
+            }],
+            xAxes: [{
+                // Change here
+            	barPercentage: 0.9
+            }]
         }
     }
 });
