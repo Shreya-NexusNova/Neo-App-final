@@ -159,7 +159,7 @@ $qry=DB::table('issue as i')->select('i.*','u.name','l.location_name','it.type_n
 
 
 
-                              <div class="col-lg-2       " style="margin-top:30px">
+                              <div class="col-lg-2" style="margin-top:30px">
                                   <button class="btn btn-primary">Filter</button>
                               </div>
 
@@ -170,71 +170,71 @@ $qry=DB::table('issue as i')->select('i.*','u.name','l.location_name','it.type_n
                       <table class="table table-striped table-hover table-borderless table-vcenter font-size-sm">
                           <thead class="thead thead-light ">
                               <tr>
-                                  <th style="width: 5%"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.id"
+                                  <th style="min-width: 5px"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.id"
                                           class=""># </a></th>
                                   @if(Auth::user()->role=='admin')
-                                  <th style="width: 15%"><a
+                                  <th style="min-width: 5px"><a
                                           href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=u.name"
                                           >Added By</a></th>
                                   @endif
-                                  <th style="width: 10%"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=it.type_name"
+                                  <th style="min-width: 5px"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=it.type_name"
                                          >Type </a></th>
 
-                                  <th style="width: 10%"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=itd.type_detail_name"
+                                  <th style="min-width: 2px"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=itd.type_detail_name"
                                           >Sub Type </<a>
                                   </th>
 
-                                  <th style="width: 10%"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=l.location_name"
+                                  <th style="min-width: 2px"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=l.location_name"
                                          >Location </a></th>
 
-                                  <th style="width: 10%"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.status"
+                                  <th style="min-width: 2px"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.status"
                                           >Status </a></th>
-                                  <th style="width: 10%"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.staff_firstname"
+                                  <th style="min-width: 2px"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.staff_firstname"
                                        >Staff </a></th>
-                                  <th style="width: 10%"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.staff_role"
+                                  <th style="min-width: 2px"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.staff_role"
                                           >Staff Role </a></th>
-                                  <th style="width: 10%"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.email"
+                                  <th style="min-width: 2px"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.email"
                                           >Email </a></th>
-                                  <th style="width: 10%;"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.phone"
+                                  <th style="min-width: 2px"><a href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.phone"
                                          >Phone </a></th>
 
 
 
-                                  <th style="width: 15%"><a
+                                  <th style="min-width: 2px"><a
                                           href="{{url()->current()}}?{{isset($_GET['search'])?'search='.$_GET['search']:''}}&orderBy={{@$_GET['orderBy']=='desc'?'asc':'desc'}}&field=i.created_at"
                                           >Created On </a></th>
 
 
-                                  <th style="width: 5%" class="text-center">Actions</th>
+                                  <th style="min-width: 2px" class="text-center">Actions</th>
                               </tr>
                           </thead>
                           <tbody id="showdata">
                               @php $sno= $qry->perPage() * ($qry->currentPage() - 1);@endphp
                               @foreach($qry as $q)
                               <tr>
-                                  <td>{{++$sno}}</td>
+                                  <td style="font-size: 13px;">{{++$sno}}</td>
                                   @if(Auth::user()->role=='admin')
-                                  <td>{{$q->name}}</td>
+                                  <td style="font-size: 13px;">{{$q->name}}</td>
                                   @endif
-                                  <td class="font-w600">
+                                  <td style="font-size: 13px;" class="font-w600">
                                       {{$q->type_name}}
                                   </td>
 
 
-                                  <td>{{$q->type_detail_name}}</td>
-                                  <td>{{$q->location_name}}</td>
-                                  <td>
+                                  <td style="font-size: 12px;">{{$q->type_detail_name}}</td>
+                                  <td style="font-size: 13px;">{{$q->location_name}}</td>
+                                  <td style="font-size: 13px;">
                                       @if($q->status=='Resolved')
                                       <div class="badge badge-success">Resolved</div>
                                       @else
                                       <div class="badge badge-danger">Unresolved</div>
                                       @endif
                                   </td>
-                                  <td>{{$q->staff_firstname}} {{$q->staff_lastname}}</td>
+                                  <td style="font-size: 13px;">{{$q->staff_firstname}} {{$q->staff_lastname}}</td>
                                   <td>{{$q->staff_role_name}}</td>
-                                  <td>{{$q->email}}</td>
-                                  <td>{{$q->phone}}</td>
-                                  <td>{{$q->created_at}}</td>
+                                  <td style="font-size: 13px;">{{$q->email}}</td>
+                                  <td style="font-size: 13px;">{{$q->phone}}</td>
+                                  <td style="font-size: 13px;">{{$q->created_at}}</td>
 
 
                                   <td class="text-center">
